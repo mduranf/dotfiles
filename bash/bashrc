@@ -1,49 +1,28 @@
 # ------ #
-# Author: Maria Juliana Duran
-# Maintainers: Maria Juliana Duran
-# Date: Jun 19, 2020
-# License: 
+# author: maria juliana duran
+# maintainers: maria juliana duran
+# date: jun 19, 2020
+# license: 
 # ------ #
 
-#------------------------Prompt colors------------- ----- #
-PS1="\n\[\e[38;5;125m\]\u\[\e[0;33m\] at \[\e[38;5;63m\]\h\[\e[0;33m\]:\[\e[38;5;80m\]\w\[\e[0;37m\]\n \[\e[0;33m\]$ \[\e[0;00m\]"
+#------------------------prompt colors------------- ----- #
+ps1="\n\[\e[38;5;125m\]\u\[\e[0;33m\] at \[\e[38;5;63m\]\h\[\e[0;33m\]:\[\e[38;5;80m\]\w\[\e[0;37m\]\n \[\e[0;33m\]$ \[\e[0;00m\]"
 
-#------------------------Aliases------------------------- #
+#------------------------aliases------------------------- #
 alias gs="git status"
 alias gc="git commit -m"
-alias gA="git add -A && git status"
-alias gp="git push origin"
-alias j='xdir=$(fasd -dl | fzf --tac) && cd "$xdir"'
-eval "$(fasd --init auto)"
-alias ll='ls -alF'                                                             
-alias la='ls -A'                                                                
-alias l='ls -CF'
-alias vim="nvim"
-#------------------------Functions----------------------- #
+alias ll='ls -alf'                                                             
+alias la='ls -a'                                                                
+alias l='ls -cf'
 
-# Checking if tree is installed #
-if ! [ -x "$(command -v tree)" ]; then
-  echo 'Tree not installed.' >&2
-  sudo apt-get install tree
-fi
+#-----------------------config-------------------------- #
+set number
+set showcmd
+set encoding=utf-8
 
-# Creating task #
-  # $1 is project path
-  # $2 is task name
-function task () {
-  if [ ! -d $1 ];
-  then
-     echo 'Project path not valid'
-  else
-     cd $1
-     mkdir $2
-     cd $2
-     mkdir src input output
-     tree -C
-  fi
-}
-
-#------------------------Path------------------------------#
-export PATH="~/Documents/CEV/resource-utils/bin:$PATH"
-export LC_ALL='en_US.UTF-8'
-# Done
+#-----------------------paths--------------------------- #:wq
+source $home/mydotfiles/shell/paths
+export python=$home/anaconda3/bin/python
+export lc_all='en_us.utf-8'
+# done
+eval "$(/opt/homebrew/bin/brew shellenv)"
