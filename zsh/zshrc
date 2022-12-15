@@ -1,11 +1,12 @@
 # ------ #
-# Author: Maria Juliana Duran
+# Author: Maria Juliana Durán
 # Maintainers: Maria Juliana Duran
 # Date: Dec 3, 2022
 # ------ #
-
+#!/usr/bin/env bash
 #------------------------Prompt Custom------------------ #
 PS1='%F{89}%n%f at %F{101}%m%f: %F{102}%~$%f '
+
 
 #------------------------Aliases------------------------- #
 alias gs="git status"
@@ -19,10 +20,14 @@ set number
 set showcmd
 set encoding=utf-8
 
+# Enable vi mode
+bindkey -v
+
+# Installing autocomplete
+znap source marlonrichert/zsh-autocomplete
 #------------------------Path------------------------------#
-source $HOME/mydotfiles/shell/paths
 export LC_ALL='en_US.UTF-8'
-# Done
-# eval "$(/opt/homebrew/bin/brew shellenv)"
-
-
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(fasd --init posix-alias zsh-hook)"   
+source $HOME/mydotfiles/shell/paths
+source ~/zsh-snap/znap.zsh
