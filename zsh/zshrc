@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  ------ #
   1 # Author: Maria Juliana Durán
   2 # Maintainers: Maria Juliana Duran
@@ -31,3 +32,38 @@
  30 eval "$(fasd --init posix-alias zsh-hook)"
  31 source $HOME/mydotfiles/shell/paths
  32 source ~/zsh-snap/znap.zsh
+=======
+# ------ #
+# Author: Maria Juliana Durán
+# Maintainers: Maria Juliana Duran
+# Date: Dec 3, 2022
+# ------ #
+#!/usr/bin/env bash
+#------------------------Prompt Custom------------------ #
+PS1='%F{89}%n%f at %F{101}%m%f: %F{102}%~$%f '
+
+
+#------------------------Aliases------------------------- #
+alias gs="git status"
+alias gc="git commit -m"
+alias ll='ls -alF'                                                             
+alias la='ls -A'                                                                
+alias l='ls -CF'
+
+#-----------------------Config-------------------------- #
+set number
+set showcmd
+set encoding=utf-8
+
+# Enable vi mode
+bindkey -v
+
+# Installing autocomplete
+znap source marlonrichert/zsh-autocomplete
+#------------------------Path------------------------------#
+export LC_ALL='en_US.UTF-8'
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(fasd --init posix-alias zsh-hook)"   
+source $HOME/mydotfiles/shell/paths
+source ~/zsh-snap/znap.zsh
+>>>>>>> 51c2fbfff480719fcb72562dbbd25b39624a9294
