@@ -1,28 +1,33 @@
-# ------ #
-# Author: Maria Juliana Duran
-# Maintainers: Maria Juliana Duran
-# Date: Dec 3, 2022
-# ------ #
-
-#------------------------Prompt Custom------------------ #
-PS1='%F{89}%n%f at %F{101}%m%f: %F{102}%~$%f '
-
-#------------------------Aliases------------------------- #
-alias gs="git status"
-alias gc="git commit -m"
-alias ll='ls -alF'                                                             
-alias la='ls -A'                                                                
-alias l='ls -CF'
-
-#-----------------------Config-------------------------- #
-set number
-set showcmd
-set encoding=utf-8
-
-#------------------------Path------------------------------#
-source $HOME/mydotfiles/shell/paths
-export LC_ALL='en_US.UTF-8'
-# Done
-# eval "$(/opt/homebrew/bin/brew shellenv)"
-
-
+ ------ #
+  1 # Author: Maria Juliana Durán
+  2 # Maintainers: Maria Juliana Duran
+  3 # Date: Dec 3, 2022
+  4 # ------ #
+  5 #!/usr/bin/env bash
+  6 #------------------------Prompt Custom------------------ #
+  7 PS1='%F{89}%n%f at %F{101}%m%f: %F{102}%~$%f '
+  8
+  9
+ 10 #------------------------Aliases------------------------- #
+ 11 alias gs="git status"
+ 12 alias gc="git commit -m"
+ 13 alias ll='ls -alF'
+ 14 alias la='ls -A'
+ 15 alias l='ls -CF'
+ 16
+ 17 #-----------------------Config-------------------------- #
+ 18 set number
+ 19 set showcmd
+ 20 set encoding=utf-8
+ 21
+ 22 # Enable vi mode
+ 23 bindkey -v
+ 24
+ 25 # Installing autocomplete
+ 26 znap source marlonrichert/zsh-autocomplete
+ 27 #------------------------Path------------------------------#
+ 28 export LC_ALL='en_US.UTF-8'
+ 29 eval "$(/opt/homebrew/bin/brew shellenv)"
+ 30 eval "$(fasd --init posix-alias zsh-hook)"
+ 31 source $HOME/mydotfiles/shell/paths
+ 32 source ~/zsh-snap/znap.zsh
